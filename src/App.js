@@ -1,34 +1,34 @@
 import React from "react";
-
+import Counter from "./components/Counter";
 
 class App extends React.Component {
-  constructor(){
+  constructor() {
     super();
-    this.state ={
-      count: 0
-    }
+    this.state = {
+      count: 0,
+    };
   }
+
+  increment = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+  substract = () => {
+    this.setState({ count: this.state.count - 1 });
+  };
 
   render() {
-    return(
+    return (
       <div>
         <h1>Counter</h1>
-        <h2>{this.state.count}</h2>
-        <button
-        onClick= {() => {
-          this.setState({count: this.state.count-1 })
-        }}
-        >-</button>
-         <button
-        onClick= {() => {
-          this.setState({count: this.state.count+1 })
-        }}
-        >+</button>
-
+        <Counter
+          increment={() => this.increment()}
+          count={this.state.count}
+          substract={() => this.substract()}
+          count={this.state.count}
+        />
       </div>
-    )
+    );
   }
-
 }
 
 export default App;
