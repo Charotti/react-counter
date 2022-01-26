@@ -7,17 +7,26 @@ class App extends React.Component {
     super();
     this.state = {
       count: 0,
+      count2: 0,
     };
   }
+  increment() {
+    this.setState((prevState) => {
+      return {
+        count: prevState.count + 1,
+      };
+    });
+  }
 
-  increment = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
-  substract = () => {
+  substract() {
     if (this.state.count > 0) {
-      this.setState({ count: this.state.count - 1 });
+      this.setState((prevState) => {
+        return {
+          count: prevState.count - 1,
+        };
+      });
     }
-  };
+  }
 
   render() {
     return (
@@ -25,7 +34,11 @@ class App extends React.Component {
         <h1>Counter</h1>
         <Counter
           increment={() => this.increment()}
+          substract={() => this.substract()}
           count={this.state.count}
+        />
+        <Counter
+          increment={() => this.increment()}
           substract={() => this.substract()}
           count={this.state.count}
         />
