@@ -8,9 +8,15 @@ class Counter extends React.Component {
         {/* <button onClick={()=>{
             this.setState({count: this.state.count -1});
           }}>-</button> */}
-        <button onClick={() => this.props.substract()}>-</button>
+        <div className="btn-wrapper">
+          <button className="btn-red" onClick={() => this.props.substract()}>
+            -
+          </button>
 
-        <button onClick={() => this.props.increment()}>+</button>
+          <button className=" btn-green" onClick={() => this.props.increment()}>
+            +
+          </button>
+        </div>
       </div>
     );
   }
